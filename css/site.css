@@ -110,8 +110,8 @@ mark.ph{background:#FFF1B8;color:#5A3E00;border:1px dashed #C9A227;border-radius
 .campanha[hidden]{display:none}
 .campanha__in{display:flex;align-items:center;gap:12px;min-height:48px;padding-top:4px;padding-bottom:4px}
 .campanha p{margin:0;flex:1}
-.campanha__botao{color:#fff;font-weight:600;white-space:nowrap;min-height:44px;display:inline-flex;align-items:center}
-.campanha__fechar{background:none;border:0;color:#fff;width:44px;height:44px;display:grid;place-items:center;cursor:pointer;border-radius:50%}
+.campanha__botao{color:#fff;font-weight:600;white-space:nowrap;min-height:48px;display:inline-flex;align-items:center}
+.campanha__fechar{background:none;border:0;color:#fff;width:48px;height:48px;display:grid;place-items:center;cursor:pointer;border-radius:50%}
 
 /* ---------- topo ---------- */
 .topo{position:sticky;top:0;z-index:50;background:var(--creme-claro);border-bottom:1px solid transparent;transition:border-color .2s ease,box-shadow .2s ease}
@@ -475,7 +475,7 @@ li:nth-child(3) .parte::before{background:var(--dourado);border-color:var(--dour
 .rodape__marca img{height:80px;width:auto;margin-bottom:22px}
 .rodape__marca p{margin:0 0 10px}
 .rodape__links ul{list-style:none;margin:0;padding:0;display:grid;gap:2px}
-.rodape__links a,.rodape__item,.link-botao{display:inline-flex;align-items:center;gap:10px;min-height:44px}
+.rodape__links a,.rodape__item,.link-botao{display:inline-flex;align-items:center;gap:10px;min-height:48px}
 .rodape__links a{text-decoration:none}
 .rodape__links .ic{width:20px;height:20px;color:var(--pessego)}
 .link-botao{padding:0;border:0;background:none;cursor:pointer;text-decoration:underline;text-underline-offset:.2em}
