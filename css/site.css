@@ -104,7 +104,7 @@ mark.ph{background:#FFF1B8;color:#5A3E00;border:1px dashed #C9A227;border-radius
 .topo__nav ul{list-style:none;margin:0;padding:0}
 .topo__nav li a{display:flex;align-items:center;min-height:58px;font:700 1.1875rem var(--fonte-titulo);color:var(--ameixa-escura);text-decoration:none;border-bottom:1px solid var(--linha)}
 .topo__nav-cta{width:100%;margin-top:20px}
-.topo__cta{min-height:46px;padding:8px 16px;margin-left:auto}
+.topo__cta{min-height:48px;padding:8px 16px;margin-left:auto}
 .topo__menu{width:48px;height:48px;display:grid;place-items:center;border:0;background:transparent;color:#fff;border-radius:12px;cursor:pointer}
 .topo__menu .ic{width:28px;height:28px}
 .topo__menu .ic:last-child,.topo.aberto .topo__menu .ic:first-child{display:none}
@@ -121,7 +121,7 @@ mark.ph{background:#FFF1B8;color:#5A3E00;border:1px dashed #C9A227;border-radius
 @media (min-width:1240px){
   .topo__nav{position:static;display:flex;align-items:center;max-height:none;overflow:visible;background:none;color:inherit;box-shadow:none;padding:0;opacity:1;transform:none;visibility:visible;transition:none}
   .topo__nav ul{display:flex;gap:2px}
-  .topo__nav li a{min-height:48px;padding:0 12px;border:0;border-radius:999px;font-size:1.0625rem;color:#fff}
+  .topo__nav li a{min-height:48px;padding:0 11px;border:0;border-radius:999px;font-size:1.125rem;color:#fff}
   .topo__nav-cta{display:none}
   .topo__menu{display:none}
   .topo__cta{margin-left:10px}
@@ -357,5 +357,5 @@ iframe{border:0}
   .barra-fixa{transition:visibility 0s}
   .cookies{transform:none}
   @starting-style{.cookies{transform:none}}
-  body.barra-ativa .flutuante{transform:none}
+  body.barra-ativa .flutuante,.flutuante:hover{transform:none}
 }
