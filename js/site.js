@@ -1,4 +1,4 @@
-/* Polo Dental Facial · comportamento do site, v3 "A conversa" (sem bibliotecas).
+/* Polo Dental Facial · comportamento do site, v4 "Catálogo de exposição" (sem bibliotecas).
    Igual à v1, menos a entrada animada ao rolar. As dúvidas usam <details> nativo
    (a resposta já está na página; o JS só registra o evento). */
 (function () {
