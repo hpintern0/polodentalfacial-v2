@@ -1,6 +1,6 @@
-/* Polo Dental Facial · comportamento do site, v4 "Catálogo de exposição" (sem bibliotecas).
-   Igual à v1, menos a entrada animada ao rolar. As dúvidas usam <details> nativo
-   (a resposta já está na página; o JS só registra o evento). */
+/* Polo Dental Facial · comportamento do site, v5 (sem bibliotecas).
+   Igual à v4: WhatsApp por origem, menu, topo que fica branco ao rolar, cookies,
+   formulário. As dúvidas usam <details> nativo (o JS só registra o evento). */
 (function () {
   'use strict';
 
