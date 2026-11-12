@@ -1,5 +1,6 @@
-/* Polo Dental Facial · comportamento do site, v2 (sem bibliotecas).
-   Igual à v1, menos a entrada animada ao rolar e mais o destaque das partes do implante. */
+/* Polo Dental Facial · comportamento do site, v3 "A conversa" (sem bibliotecas).
+   Igual à v1, menos a entrada animada ao rolar. As dúvidas usam <details> nativo
+   (a resposta já está na página; o JS só registra o evento). */
 (function () {
   'use strict';
 
@@ -174,28 +175,6 @@
       barra.classList.toggle('visivel', fora);
       document.body.classList.toggle('barra-ativa', fora);
     }).observe(hero);
-  }
-
-  /* ---------- "Como é um implante": tocar numa parte destaca a peça no desenho ---------- */
-  var anat = document.querySelector('[data-anatomia]');
-  if (anat) {
-    var botoesParte = anat.querySelectorAll('[data-parte-botao]');
-    var marcar = function (parte) {
-      if (parte) anat.setAttribute('data-ativa', parte); else anat.removeAttribute('data-ativa');
-      Array.prototype.forEach.call(botoesParte, function (b) {
-        b.setAttribute('aria-pressed', String(b.getAttribute('data-parte-botao') === parte));
-      });
-    };
-    var fixada = null;
-    var mouseFino = window.matchMedia && window.matchMedia('(hover: hover) and (pointer: fine)').matches;
-    Array.prototype.forEach.call(botoesParte, function (b) {
-      var parte = b.getAttribute('data-parte-botao');
-      b.addEventListener('click', function () { fixada = fixada === parte ? null : parte; marcar(fixada); });
-      if (mouseFino) {
-        b.addEventListener('mouseenter', function () { anat.setAttribute('data-ativa', parte); });
-        b.addEventListener('mouseleave', function () { marcar(fixada); });
-      }
-    });
   }
 
   /* ---------- faixa de campanha ---------- */
