@@ -180,6 +180,11 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 /* ---------- seções ---------- */
 .secao{padding:var(--secao) 0}
 .secao--pedra{background:var(--pedra)}
+/* duas seções seguidas na mesma parede: em vez de somar as duas margens (quase 300px vazios),
+   cada uma fica com 60% e um fio fino, na largura do conteúdo, marca a troca */
+.secao:not(.secao--pedra):not(.secao--sala):has(+ .secao:not(.secao--pedra):not(.secao--sala)){padding-bottom:calc(var(--secao) * .6)}
+.secao:not(.secao--pedra):not(.secao--sala) + .secao:not(.secao--pedra):not(.secao--sala){padding-top:calc(var(--secao) * .6);
+  background:linear-gradient(var(--linha),var(--linha)) no-repeat center top / min(calc(100% - 2 * var(--gutter)),calc(1240px - 2 * var(--gutter))) 1px}
 .duas{display:grid;gap:48px}
 .duas__cabeca > .titulo-secao:last-child{margin-bottom:0}
 @media (min-width:1024px){
