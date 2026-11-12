@@ -146,28 +146,29 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 .obra__tag{position:absolute;left:10px;top:10px;padding:2px 10px;background:rgba(255,255,255,.94);font:600 .8125rem/1.5 var(--fonte-texto);letter-spacing:.12em;text-transform:uppercase}
 
 
-/* ---------- entrada: a parede iluminada ---------- */
-.parede{padding:24px 0 28px}
+/* ---------- entrada: o Dr. Renan na parede iluminada, o texto ao lado ---------- */
 .parede--luz{position:relative;isolation:isolate}
-.parede--luz::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 65% at 50% 40%,#FFFFFF 0%,rgba(255,255,255,.65) 42%,rgba(255,255,255,0) 76%)}
+.parede--luz::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(70% 45% at 50% 22%,#FFFFFF 0%,rgba(255,255,255,.65) 42%,rgba(255,255,255,0) 76%)}
 @media (prefers-reduced-motion:no-preference){.parede--luz::before{animation:luz-acende 1.6s var(--ease-out) .15s both}}
 @keyframes luz-acende{from{opacity:0}to{opacity:1}}
-.obra--destaque{margin:0}
-.entrada__texto{padding-top:8px;padding-bottom:clamp(56px,7vw,96px)}
+.entrada{padding:24px 0 clamp(56px,7vw,96px)}
+.entrada__grade{display:grid;gap:28px}
+.obra--topo{order:-1}  /* no celular o retrato vem antes do texto, recortado em 4:3 para o botão caber na primeira tela */
+.obra--topo img{aspect-ratio:4/3;object-fit:cover;object-position:50% 6%}
+@media (min-width:600px) and (max-width:1023px){.obra--topo{max-width:560px}}
 .entrada h1{font-size:clamp(2.375rem,1.6rem + 3vw,4.25rem);line-height:1.04;letter-spacing:-.018em}
 .entrada__lead{margin:10px 0 0;font:500 clamp(1.25rem,1.05rem + 1vw,2rem)/1.25 var(--fonte-titulo);letter-spacing:-.012em;color:var(--tinta)}
 .entrada__sub{margin:0 0 22px;font-size:1.1875rem;line-height:1.6;color:var(--tinta-suave);max-width:34em}
-.entrada__acoes{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:22px 0 24px}
+.entrada__acoes{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:24px 0 28px}
 .entrada__acoes .btn{width:100%}
 .entrada__local{margin:0;padding-top:18px;border-top:1px solid var(--linha);color:var(--tinta-suave);max-width:30em}
 @media (min-width:600px){.entrada__acoes{flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px 28px}.entrada__acoes .btn{width:auto}}
 @media (min-width:1024px){
-  .parede{padding:40px 0 44px}
-  .obra--destaque{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--vao);align-items:end}
-  .obra--destaque .etiqueta{margin:0;max-width:340px}
-  .entrada__texto{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--vao);align-items:start;padding-top:16px}
-  .entrada__corpo{padding-top:10px}
-  .entrada__acoes{margin-top:0}
+  .entrada{padding:40px 0 clamp(64px,7vw,104px)}
+  .parede--luz::before{background:radial-gradient(42% 70% at 75% 42%,#FFFFFF 0%,rgba(255,255,255,.65) 42%,rgba(255,255,255,0) 76%)}
+  .entrada__grade{grid-template-columns:1fr 1fr;column-gap:var(--vao);align-items:center}
+  .obra--topo{order:0}
+  .obra--topo img{aspect-ratio:auto}
 }
 
 /* ---------- ficha ---------- */
@@ -249,7 +250,7 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 .mostra__aviso{max-width:44em;margin:56px 0 0;color:var(--tinta-suave)}
 @media (min-width:768px){
   .mostra{grid-template-columns:1fr 1fr;gap:72px var(--vao);align-items:start}
-  .mostra .obra--par{grid-column:1 / -1}
+  .mostra .obra--par,.mostra .obra--abre{grid-column:1 / -1}
   .obra--par .obra__par{grid-template-columns:1fr 1fr}
 }
 
