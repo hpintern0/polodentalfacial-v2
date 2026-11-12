@@ -3,9 +3,11 @@
    A clínica como uma exposição do trabalho do Dr. Renan: os casos reais são
    as obras, em moldura, cada um com sua etiqueta, numa parede clara de galeria.
    Cores da marca (ameixa e dourado do logo, pedra da fachada); títulos em
-   Bodoni Moda reta, texto em Hanken Grotesk.
+   Source Serif 4 (escolhida pelo cliente em 12/11/2026, no lugar da Bodoni Moda),
+   texto em Hanken Grotesk. Tudo numa grade de duas colunas com o mesmo vão.
    ===================================================================== */
-@font-face{font-family:'Bodoni Moda';font-style:normal;font-weight:400 900;font-display:swap;src:url(/polodentalfacial-v2/fonts/bodoni-moda-latin.woff2) format('woff2')}
+/* Source Serif 4 recortada para os pesos 500–600 e os tamanhos óticos 18–60 que o site usa */
+@font-face{font-family:'Source Serif 4';font-style:normal;font-weight:500 600;font-display:swap;src:url(/polodentalfacial-v2/fonts/source-serif-4-latin.woff2) format('woff2')}
 @font-face{font-family:'Hanken Grotesk';font-style:normal;font-weight:300 800;font-display:swap;src:url(/polodentalfacial-v2/fonts/hanken-grotesk-latin.woff2) format('woff2')}
 
 :root{
@@ -23,7 +25,7 @@
   --borda-campo:#8F857F;
   --erro:#9B2C2C;
 
-  --fonte-titulo:'Bodoni Moda','Didot','Bodoni 72',Georgia,serif;
+  --fonte-titulo:'Source Serif 4',Georgia,'Times New Roman',serif;
   --fonte-texto:'Hanken Grotesk',system-ui,sans-serif;
 
   --ease-out:cubic-bezier(.23,1,.32,1);
@@ -33,6 +35,7 @@
   --topo-h:68px;
   --gutter:20px;
   --secao:clamp(80px,10vw,144px);
+  --vao:clamp(40px,5vw,80px);  /* vão entre as duas colunas: a mesma linha em todas as seções */
 }
 @media (min-width:1024px){:root{--topo-h:80px;--gutter:40px}}
 
@@ -44,7 +47,7 @@ body{margin:0;background:var(--parede);color:var(--tinta);font:400 1.125rem/1.65
 ::selection{background:var(--pedra);color:var(--tinta)}
 img,svg{display:block;max-width:100%}
 img{height:auto}
-h1,h2,h3{font-family:var(--fonte-titulo);font-optical-sizing:auto;color:var(--tinta);margin:0;font-weight:500;text-wrap:balance}
+h1,h2,h3{font-family:var(--fonte-titulo);font-optical-sizing:auto;color:var(--tinta);margin:0;font-weight:600;letter-spacing:-.015em;text-wrap:balance}
 p{margin:0 0 1em;text-wrap:pretty}
 a{color:var(--tinta);text-decoration-thickness:1px;text-underline-offset:.22em}
 strong{font-weight:600}
@@ -60,7 +63,7 @@ button{font:inherit;color:inherit}
 mark.ph{background:#FFF1B8;color:#5A3E00;border:1px dashed #C9A227;padding:0 .3em;font-weight:600}
 
 /* títulos de seção: o termo de busca do briefing fica numa linha abaixo */
-.titulo-secao{font-size:clamp(2.125rem,1.45rem + 2.5vw,3.5rem);line-height:1.06;letter-spacing:-.012em;margin-bottom:clamp(36px,4.5vw,64px);max-width:18em}
+.titulo-secao{font-size:clamp(2.125rem,1.45rem + 2.5vw,3.5rem);line-height:1.08;letter-spacing:-.015em;margin-bottom:clamp(36px,4.5vw,64px);max-width:18em}
 .titulo-secao__termo{display:block;margin-top:.75em;font:600 1.125rem/1.4 var(--fonte-texto);letter-spacing:.01em;color:var(--tinta-suave)}
 h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.15}
 
@@ -133,15 +136,15 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 .obra{margin:0}
 .obra__moldura{background:var(--branco);padding:clamp(10px,1.4vw,18px);box-shadow:var(--sombra-obra)}
 .obra__moldura img{width:100%}
-.etiqueta{display:grid;gap:2px;width:min(100%,340px);margin:16px 0 0 auto;padding:12px 16px 14px;background:var(--branco);border-top:1px solid var(--dourado)}
+.etiqueta{display:grid;gap:2px;max-width:30em;margin:14px 0 0;padding:12px 0 0;border-top:1px solid var(--dourado)}
 .etiqueta__num{font:600 .8125rem/1.5 var(--fonte-texto);letter-spacing:.14em;text-transform:uppercase;color:var(--dourado-texto)}
-.etiqueta strong{font:600 1.375rem/1.2 var(--fonte-titulo);color:var(--tinta)}
-.etiqueta span:last-child{font-size:1.125rem;line-height:1.45;color:var(--tinta-suave)}
+.etiqueta strong{font:600 1.25rem/1.25 var(--fonte-titulo);color:var(--tinta)}
+.etiqueta span:last-child{font-size:1rem;line-height:1.5;color:var(--tinta-suave)}
+.secao--sala .etiqueta strong{color:var(--parede)}
 .obra__par{display:grid;gap:6px}
 .obra__lado{position:relative}
 .obra__tag{position:absolute;left:10px;top:10px;padding:2px 10px;background:rgba(255,255,255,.94);font:600 .8125rem/1.5 var(--fonte-texto);letter-spacing:.12em;text-transform:uppercase}
-.obra--retrato{max-width:460px}
-.obra--menor{max-width:300px;margin:32px 0 0 auto}
+
 
 /* ---------- entrada: a parede iluminada ---------- */
 .parede{padding:24px 0 28px}
@@ -149,10 +152,10 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 .parede--luz::before{content:"";position:absolute;inset:0;z-index:-1;background:radial-gradient(55% 65% at 50% 40%,#FFFFFF 0%,rgba(255,255,255,.65) 42%,rgba(255,255,255,0) 76%)}
 @media (prefers-reduced-motion:no-preference){.parede--luz::before{animation:luz-acende 1.6s var(--ease-out) .15s both}}
 @keyframes luz-acende{from{opacity:0}to{opacity:1}}
-.obra--destaque{max-width:680px;margin:0 auto}
+.obra--destaque{margin:0}
 .entrada__texto{padding-top:8px;padding-bottom:clamp(56px,7vw,96px)}
-.entrada h1{font-size:clamp(2.375rem,1.5rem + 3.8vw,5rem);line-height:1.02;letter-spacing:-.018em;max-width:12em}
-.entrada__lead{margin:10px 0 0;font:500 clamp(1.25rem,1.05rem + 1vw,2rem)/1.25 var(--fonte-titulo);color:var(--tinta)}
+.entrada h1{font-size:clamp(2.375rem,1.6rem + 3vw,4.25rem);line-height:1.04;letter-spacing:-.018em}
+.entrada__lead{margin:10px 0 0;font:500 clamp(1.25rem,1.05rem + 1vw,2rem)/1.25 var(--fonte-titulo);letter-spacing:-.012em;color:var(--tinta)}
 .entrada__sub{margin:0 0 22px;font-size:1.1875rem;line-height:1.6;color:var(--tinta-suave);max-width:34em}
 .entrada__acoes{display:flex;flex-direction:column;align-items:flex-start;gap:8px;margin:22px 0 24px}
 .entrada__acoes .btn{width:100%}
@@ -160,10 +163,10 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 @media (min-width:600px){.entrada__acoes{flex-direction:row;flex-wrap:wrap;align-items:center;gap:12px 28px}.entrada__acoes .btn{width:auto}}
 @media (min-width:1024px){
   .parede{padding:40px 0 44px}
-  .obra--destaque{display:grid;grid-template-columns:minmax(0,640px) 300px;gap:36px;align-items:end;max-width:none;justify-content:center}
-  .obra--destaque .etiqueta{margin:0}
-  .entrada__texto{display:grid;grid-template-columns:1.1fr .9fr;gap:72px;align-items:start;padding-top:16px}
-  .entrada__corpo{padding-top:12px}
+  .obra--destaque{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--vao);align-items:end}
+  .obra--destaque .etiqueta{margin:0;max-width:340px}
+  .entrada__texto{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--vao);align-items:start;padding-top:16px}
+  .entrada__corpo{padding-top:10px}
   .entrada__acoes{margin-top:0}
 }
 
@@ -171,14 +174,15 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 .ficha{padding:0 0 8px}
 .ficha__lista{list-style:none;margin:0;padding:0;display:grid;border-top:1px solid var(--linha-forte)}
 .ficha__lista li{padding:16px 0;border-bottom:1px solid var(--linha);font-weight:500;line-height:1.4}
-@media (min-width:768px){.ficha__lista{grid-template-columns:1fr 1fr;column-gap:48px}}
+@media (min-width:768px){.ficha__lista{grid-template-columns:1fr 1fr;column-gap:var(--vao)}}
 
 /* ---------- seções ---------- */
 .secao{padding:var(--secao) 0}
 .secao--pedra{background:var(--pedra)}
 .duas{display:grid;gap:48px}
+.duas__cabeca > .titulo-secao:last-child{margin-bottom:0}
 @media (min-width:1024px){
-  .duas{grid-template-columns:.9fr 1.1fr;gap:96px;align-items:start}
+  .duas{grid-template-columns:1fr 1fr;gap:var(--vao);align-items:start}
   .duas__cabeca{position:sticky;top:calc(var(--topo-h) + 48px)}
   .duas--autor .duas__visual,.duas--visite .duas__visual,.duas .duas__visual{position:sticky;top:calc(var(--topo-h) + 40px)}
 }
@@ -189,7 +193,7 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 .dores li{padding:20px 0;border-bottom:1px solid var(--linha);font-size:clamp(1.25rem,1.12rem + .5vw,1.5rem);line-height:1.45}
 .dores__fecho{display:grid;gap:22px;justify-items:start;margin-top:36px;max-width:40em}
 .dores__fecho p{margin:0;color:var(--tinta-suave)}
-@media (min-width:1024px){.sala{grid-template-columns:.8fr 1.2fr;gap:96px;align-items:start}.sala .titulo-secao{position:sticky;top:calc(var(--topo-h) + 48px)}}
+@media (min-width:1024px){.sala{grid-template-columns:1fr 1fr;gap:var(--vao);align-items:start}.sala .titulo-secao{position:sticky;top:calc(var(--topo-h) + 48px)}}
 
 /* tratamentos: verbetes de catálogo */
 .verbetes{display:grid;gap:48px}
@@ -197,23 +201,25 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 .verbete h3{margin-bottom:12px}
 .verbete p{max-width:30em;color:var(--tinta)}
 .verbete .btn{margin-top:4px}
-.glossario{display:grid;gap:40px;align-items:end;margin-top:clamp(64px,8vw,112px)}
-.obra--pequena{max-width:340px;margin-left:auto}
+.glossario{display:grid;gap:40px;align-items:start;margin-top:clamp(64px,8vw,112px)}
+.obra--pequena{max-width:min(100%,300px)}
+@media (min-width:1024px){.obra--pequena{max-width:360px}}
 .partes{margin:16px 0 0}
 .partes div{padding:14px 0;border-top:1px solid var(--linha)}
 .partes dt{font:600 1.375rem/1.2 var(--fonte-titulo)}
 .partes dd{margin:4px 0 0;color:var(--tinta-suave)}
-@media (min-width:768px){.verbetes{grid-template-columns:1fr 1fr;gap:64px 56px}}
-@media (min-width:1024px){.glossario{grid-template-columns:1fr minmax(0,340px);gap:96px}.glossario__texto{max-width:36em}}
+@media (min-width:768px){.verbetes{grid-template-columns:1fr 1fr;gap:64px var(--vao)}}
+@media (min-width:1024px){.glossario{grid-template-columns:1fr 1fr;gap:var(--vao)}}
 
 /* por que */
 .motivos{list-style:none;margin:0;padding:0;border-top:1px solid var(--linha-forte)}
 .motivos li{padding:26px 0;border-bottom:1px solid var(--linha)}
 .motivos h3{margin-bottom:10px}
 .motivos p{margin:0;max-width:34em}
-.obra--larga{max-width:900px;margin:clamp(56px,7vw,96px) 0 0 auto}
-@media (min-width:768px){.motivos{display:grid;grid-template-columns:1fr 1fr;column-gap:56px;border-top:0}.motivos li{border-top:1px solid var(--linha-forte);border-bottom:0}}
-@media (min-width:1024px){.obra--larga{display:grid;grid-template-columns:minmax(0,1fr) 260px;gap:32px;align-items:end}.obra--larga .etiqueta{margin:0}}
+.porque__topo{display:grid;gap:8px;margin-bottom:clamp(48px,6vw,80px)}
+.porque__topo .titulo-secao{margin-bottom:24px}
+@media (min-width:768px){.motivos{display:grid;grid-template-columns:1fr 1fr;column-gap:var(--vao);border-top:0}.motivos li{border-top:1px solid var(--linha-forte);border-bottom:0}}
+@media (min-width:1024px){.porque__topo{grid-template-columns:1fr 1fr;column-gap:var(--vao);align-items:start}.porque__topo .titulo-secao{margin-bottom:0}}
 
 /* percurso: a linha se preenche ao rolar */
 .percurso-trilho{position:relative}
@@ -242,16 +248,15 @@ h3{font-size:clamp(1.5rem,1.3rem + .6vw,1.875rem);font-weight:600;line-height:1.
 .mostra{display:grid;gap:64px}
 .mostra__aviso{max-width:44em;margin:56px 0 0;color:var(--tinta-suave)}
 @media (min-width:768px){
-  .mostra{grid-template-columns:1fr 1fr;gap:80px 56px;align-items:start}
+  .mostra{grid-template-columns:1fr 1fr;gap:72px var(--vao);align-items:start}
   .mostra .obra--par{grid-column:1 / -1}
   .obra--par .obra__par{grid-template-columns:1fr 1fr}
 }
-@media (min-width:1024px){.mostra .obra:nth-child(even):not(.obra--par){margin-top:120px}}
 
 /* o autor */
 .par{display:grid;gap:40px;margin-bottom:clamp(56px,7vw,96px)}
-.par__menor{max-width:72%;margin-left:auto}
-@media (min-width:768px){.par{grid-template-columns:1.25fr .75fr;gap:48px;align-items:end}.par__menor{max-width:none;margin:0}.par__maior{max-width:560px}}
+.par__menor{max-width:72%}
+@media (min-width:768px){.par{grid-template-columns:1fr 1fr;gap:var(--vao);align-items:start}.par__menor{max-width:none}}
 .autor__subtitulo{margin:36px 0 10px;font-size:1.375rem}
 .autor__fato{font-size:1.25rem;margin:0 0 32px}
 .autor__lista{margin:0 0 32px;padding-left:1.1em}
